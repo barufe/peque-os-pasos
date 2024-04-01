@@ -9,23 +9,23 @@ import Foundation
 
 struct StartViewFactory: ViewSwiftUIFactory {
     
-    typealias ViewType = StartView
+    typealias ViewType = OnboardingView
     typealias CoordinatorType = StartCoordinator
     
-    static func createView(coordinator: CoordinatorType) -> StartView {
+    static func createView(coordinator: CoordinatorType) -> OnboardingView {
         let viewModel = StartViewModelFactory.create()
-        let view = StartView(viewmodel: viewModel, coordinator: coordinator)
+        let view = OnboardingView(viewmodel: viewModel, coordinator: coordinator)
         
         return view
     }
     
-    static func createHostViewController(coordinator: CoordinatorType) -> GeneralHostingViewcontroller<StartView> {
+    static func createHostViewController(coordinator: CoordinatorType) -> GeneralHostingViewcontroller<OnboardingView> {
         let view = createView(coordinator: coordinator)
         let hosting = GeneralHostingViewcontroller(shouldShowNavigationBar: false, rootView: view)
         return hosting
     }
     
-    static func createPreview() -> StartView {
+    static func createPreview() -> OnboardingView {
         let view = createView(coordinator: createPreviewCoordinator())
         return view
     }

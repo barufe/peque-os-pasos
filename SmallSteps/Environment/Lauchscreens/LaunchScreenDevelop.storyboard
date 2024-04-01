@@ -27,6 +27,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="egC-am-laF">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImg" translatesAutoresizingMaskIntoConstraints="NO" id="l6x-AV-LLp">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="dkr-M2-LSK"/>
+                                    <constraint firstAttribute="height" constant="300" id="o8r-GQ-thK"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,10 +44,16 @@
                             <constraint firstItem="19r-0M-emN" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="298" id="5AN-Ox-AMi"/>
                             <constraint firstItem="19r-0M-emN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5MB-VC-WJa"/>
                             <constraint firstAttribute="bottomMargin" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="-14" id="HbQ-By-9Gp"/>
+                            <constraint firstItem="egC-am-laF" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="RjK-vY-zN3"/>
                             <constraint firstItem="19r-0M-emN" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="SIn-1M-T8k"/>
+                            <constraint firstItem="egC-am-laF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="UXL-Aa-gFY"/>
+                            <constraint firstItem="l6x-AV-LLp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Xsh-pr-NYa"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="c6s-e3-62f"/>
                             <constraint firstAttribute="trailing" secondItem="obG-Y5-kRd" secondAttribute="trailing" id="jWN-06-saH"/>
                             <constraint firstItem="19r-0M-emN" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="92" id="mDc-kM-zD7"/>
+                            <constraint firstAttribute="bottom" secondItem="egC-am-laF" secondAttribute="bottom" id="qtl-QC-icV"/>
+                            <constraint firstItem="l6x-AV-LLp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="uyx-tj-ozi"/>
+                            <constraint firstItem="egC-am-laF" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="xi6-d5-Zry"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,4 +62,8 @@
             <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gradient" width="393" height="852"/>
+        <image name="launchImg" width="377" height="453"/>
+    </resources>
 </document>

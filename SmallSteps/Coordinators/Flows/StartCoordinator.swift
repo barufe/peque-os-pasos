@@ -34,6 +34,4 @@ class StartCoordinatorImp: StartCoordinator {
     func finish() {
         viewController?.removeFromParent()
     }
-    
-    
 }
