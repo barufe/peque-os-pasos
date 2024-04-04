@@ -29,6 +29,7 @@ class ApiRegisterDataSourceImp: ApiRegisterDataSource {
             "password": user.password,
             "username": user.username
         ]
+        print(parameters)
         
         networking.request(urlBase: "\(ProductionEnvironment().baseURL)", method: .post, parameter: parameters, encoding: URLEncoding.default) { result in
             switch result {

@@ -9,18 +9,18 @@ import Foundation
 
 struct RegisterViewModelFactory {
     
-    static func create(user: UserParameters)-> RegisterViewModel {
-        let viewModel = RegisterViewModel(registerUseCase: createUseCase(user: user))
+    static func create()-> RegisterViewModel {
+        let viewModel = RegisterViewModel(registerUseCase: createUseCase())
         return viewModel
     }
     
-    private static func createUseCase(user: UserParameters) -> RegisterUseCase{
-        UsersUseCaseImp(registerRepository: createRepository(user: user))
+    private static func createUseCase() -> RegisterUseCase{
+        UsersUseCaseImp(registerRepository: createRepository())
     }
-    private static func createRepository(user: UserParameters) -> RegisterRepository{
-        RegisterRepositoryImp(apiDataSource: createApiDataSource(user: user))
+    private static func createRepository() -> RegisterRepository{
+        RegisterRepositoryImp(apiDataSource: createApiDataSource())
     }
-    private static func createApiDataSource(user: UserParameters) -> ApiRegisterDataSource{
+    private static func createApiDataSource() -> ApiRegisterDataSource{
         ApiRegisterDataSourceImp(networking: NetworkingImp())
     }
 }
