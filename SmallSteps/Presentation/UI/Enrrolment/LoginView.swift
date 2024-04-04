@@ -73,7 +73,14 @@ struct LoginView: View {
                 }.padding([.leading, .trailing], 20)
                 
                 Button(action: {
-                    
+                    viewModel.login(user: LoginUserParameters(email: email, password: contraseña)) { result in
+                        switch result {
+                        case .success(let responseEntity):
+                            showAlert(title: "Login exitoso", message: responseEntity.message)
+                        case .failure(let error):
+                            showAlert(title: "Error", message: error.localizedDescription)
+                        }
+                    }
                 })
                 {
                     Text("Iniciar Sesión")

@@ -74,7 +74,7 @@ struct RegisterView: View {
                 }.padding([.leading, .trailing], 20)
                 
                 Button(action: {
-                    viewModel.registerUser(user: UserParameters(username: user, email: email, password: contraseña)) { result in
+                    viewModel.registerUser(user: RegisterUserParameters(username: user, email: email, password: contraseña)) { result in
                         switch result {
                         case .success(let responseEntity):
                             showAlert(title: "Registro exitoso", message: responseEntity.message)

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RegisterRepository {
-    func register(user: UserParameters, completion: @escaping (Result<ResponseEntity, Error>) -> Void)
+    func register(user: RegisterUserParameters, completion: @escaping (Result<RegisterResponseEntity, Error>) -> Void)
 }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct UserParameters {
+struct RegisterUserParameters {
     let username: String
     let email: String
     let password: String
 }
+

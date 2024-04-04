@@ -13,7 +13,7 @@ class RegisterViewModel: ObservableObject{
         self.registerUseCase = registerUseCase
     }
     
-    func registerUser(user: UserParameters, completion: @escaping (Result<ResponseEntity, Error>) -> Void){
+    func registerUser(user: RegisterUserParameters, completion: @escaping (Result<RegisterResponseEntity, Error>) -> Void){
         Task {
             do {
                 registerUseCase.execute(user: user) {result in

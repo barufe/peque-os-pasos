@@ -8,18 +8,18 @@
 import Foundation
 
 protocol RegisterUseCase{
-    func execute(user: UserParameters, completion: @escaping (Result<ResponseEntity, Error>) -> Void)
+    func execute(user: RegisterUserParameters, completion: @escaping (Result<RegisterResponseEntity, Error>) -> Void)
 }
 
 final class UsersUseCaseImp: RegisterUseCase {
     private let registerRepository: RegisterRepository
-    private var response: ResponseEntity?
+    private var response: RegisterResponseEntity?
     
     init(registerRepository: RegisterRepository) {
         self.registerRepository = registerRepository
     }
     
-    func execute(user: UserParameters, completion: @escaping (Result<ResponseEntity, Error>) -> Void){
+    func execute(user: RegisterUserParameters, completion: @escaping (Result<RegisterResponseEntity, Error>) -> Void){
         registerRepository.register(user: user) {result in
             completion(result)
         }

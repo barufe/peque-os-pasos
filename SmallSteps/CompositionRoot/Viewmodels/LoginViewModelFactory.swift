@@ -10,7 +10,16 @@ import Foundation
 struct LoginViewModelFactory {
     
     static func create()-> LoginViewModel {
-        let viewModel = LoginViewModel()
+        let viewModel = LoginViewModel(loginUseCase: createUseCase())
         return viewModel
+    }
+    private static func createUseCase() -> LoginUseCase{
+        LoginUseCaseImp(loginRepository: createRepository())
+    }
+    private static func createRepository() -> LoginRepository{
+        LoginRepositoryImp(apiDataSource: createApiDataSource())
+    }
+    private static func createApiDataSource() -> ApiLoginDataSource{
+        ApiLoginDataSourceImp(networking: NetworkingImp())
     }
 }

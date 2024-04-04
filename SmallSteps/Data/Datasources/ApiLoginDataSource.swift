@@ -1,20 +1,18 @@
 //
-//  ApiRegisterDataSource.swift
+//  ApiLoginDataSource.swift
 //  SmallSteps
 //
-//  Created by barufe on 3/04/24.
+//  Created by barufe on 4/04/24.
 //
 
 import Foundation
-
 import Alamofire
 
-protocol ApiRegisterDataSource{
-    func register(user: RegisterUserParameters, completion: @escaping (Result<RegisterResponseDto, Error>) -> Void)
+protocol ApiLoginDataSource {
+    func login(user: LoginUserParameters, completion: @escaping (Result<LoginResponseDto, Error>) -> Void)
 }
 
-
-class ApiRegisterDataSourceImp: ApiRegisterDataSource {
+class ApiLoginDataSourceImp: ApiLoginDataSource {
     var networking: Networking
     private let path : String = "api/v1/auth/sign-up"
     
@@ -22,12 +20,11 @@ class ApiRegisterDataSourceImp: ApiRegisterDataSource {
         self.networking = networking
     }
     
-    func register(user: RegisterUserParameters, completion: @escaping (Result<RegisterResponseDto, Error>) -> Void) {
+    func login(user: LoginUserParameters, completion: @escaping (Result<LoginResponseDto, Error>) -> Void) {
         
         let parameters: [String: String] = [
             "email": user.email,
             "password": user.password,
-            "username": user.username
         ]
         print(parameters)
         print("\(ProductionEnvironment().baseURL + path)")
@@ -37,7 +34,7 @@ class ApiRegisterDataSourceImp: ApiRegisterDataSource {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let responseDto = try decoder.decode(RegisterResponseDto.self, from: data)
+                    let responseDto = try decoder.decode(LoginResponseDto.self, from: data)
                     completion(.success(responseDto))
                 } catch {
                     completion(.failure(error))
@@ -53,6 +50,7 @@ class ApiRegisterDataSourceImp: ApiRegisterDataSource {
 
     
 }
+
 
 
 
