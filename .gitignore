@@ -18,3 +18,45 @@ profile
 DerivedData
 *.hmap
 *.ipa
+
+
+# Archivos y carpetas generados por Xcode
+build/
+DerivedData/
+*.xcworkspace/
+*.xcodeproj/
+*.xcuserstate
+
+# Archivos y carpetas específicos de la máquina
+.DS_Store
+.idea/
+.vscode/
+
+# Archivos de entorno y secretos
+.env
+*.env
+.env.*
+*.secret
+
+# Archivos de logs y archivos temporales
+*.log
+*.log.*
+*.tmp
+
+# Archivos de respaldo y archivos de caché
+*.bak
+*.swp
+*.cache
+
+# Archivos específicos del IDE
+.classpath
+.project
+.settings/
+.iml
+.idea/
+
+# Carpetas específicas de los Pods
+Pods/
+
+# Archivos generados por CocoaPods
+Podfile.lock

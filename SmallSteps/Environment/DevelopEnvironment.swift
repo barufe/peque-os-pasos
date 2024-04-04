@@ -12,7 +12,7 @@ class DevelopEnvironment: DevelopParameters {
     var baseMockDomain: String
     
     init() {
-        self.baseURL = "http://www.develop.com"
+        self.baseURL = "https://a313-190-190-235-117.ngrok-free.app/"
         self.baseDomain = "www.develop.com"
         self.baseMockDomain = "www.develop-mockserver.com"
     }

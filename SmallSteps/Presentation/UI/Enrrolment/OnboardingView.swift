@@ -8,62 +8,52 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @ObservedObject var viewmodel: StartViewModel
-    var coordinator: StartCoordinator
+    @ObservedObject var viewmodel: OnboardingViewModel
+    var coordinator: OnboardingCoordinator
     
-    init(viewmodel: StartViewModel, coordinator: StartCoordinator) {
+    init(viewmodel: OnboardingViewModel, coordinator: OnboardingCoordinator) {
         self.viewmodel = viewmodel
         self.coordinator = coordinator
     }
-    
     
     var body: some View {
         
         ZStack {
             // Imagen de fondo que ocupa toda la pantalla
-            Image("gradient")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .edgesIgnoringSafeArea(.all)
+            Image("fondo")
+                   .resizable()
+                   .aspectRatio(contentMode: .fill)
+                   .edgesIgnoringSafeArea(.all)
+                   
             
             // Imagen en la parte superior
-            Image("launchImg")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 200, height: 200)
-                .offset(y: -200)
-            
-            // Imagen en la parte inferior
-            Image("onbordingImg")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .frame(height: 200)
-                .offset(y: 200)
-            
-            VStack {
-                Spacer()
-                Button(action: {
-                    // Acción para el botón "Iniciar Sesión"
-                }) {
-                    Text("Iniciar Sesión")
-                        .font(.custom("Raleway", size: 20))
-                        .foregroundColor(.black)
-                        .padding()
-                        .frame(width: 319, height: 42)
-                        .background(Color(red: 1.0, green: 0.61, blue: 0.81))
-                        .cornerRadius(16)
-                }
+            VStack(alignment: .center) {
+                
+                Text("Bienvenidos!")
+                    .font(.custom("Bhavuka", size: 40))
+                    .padding(.bottom, 14)
                 
                 Button(action: {
-                    // Acción para el botón "Registrarse"
+                    coordinator.goToLogin()
                 }) {
-                    Text("Registrarse")
-                        .font(.custom("Raleway", size: 20))
-                        .foregroundColor(.black)
+                    Text("Iniciar Sesión")
+                        .font(.custom("DM Sans", size: 20))
+                        .foregroundColor(.white)
                         .padding()
                         .frame(width: 319, height: 42)
-                        .background(Color(red: 1.0, green: 0.61, blue: 0.81))
+                        .background(Color(red: Double(0x9F) / 255.0, green: Double(0x9A) / 255.0, blue: Double(0xEB) / 255.0))
+                        .cornerRadius(16)
+                }.padding(.top, 20)
+                
+                Button(action: {
+                    coordinator.goToRegister()
+                }) {
+                    Text("Registrarse")
+                        .font(.custom("DM Sans", size: 20))
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 319, height: 42)
+                        .background(Color(red: Double(0x9F) / 255.0, green: Double(0x9A) / 255.0, blue: Double(0xEB) / 255.0))
                         .cornerRadius(16)
                 }.padding(.top, 20)
                 
@@ -75,7 +65,7 @@ struct OnboardingView: View {
                             .foregroundColor(.black)
                         Text("Continuar con Google?")
                             .foregroundColor(.black)
-                            .font(.custom("Raleway", size: 20))
+                            .font(.custom("DM Sans", size: 20))
                         
                     }
                     .frame(width: 290, height: 15)
@@ -84,19 +74,15 @@ struct OnboardingView: View {
                     .cornerRadius(16)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
-                            .stroke(Color.black, lineWidth: 1)
+                            .stroke(Color.gray, lineWidth: 0.5)
                     )
                 }
                 .padding(.top, 70)
             }
-            .padding(.bottom, 120)
-            .padding()
         }
     }
-    //Text(Constant.environment.baseURL)
-    //Text(Constant.environment.baseDomain)
 }
 
 #Preview {
-    StartViewFactory.createPreview()
+    OnboardingViewFactory.createPreview()
 }

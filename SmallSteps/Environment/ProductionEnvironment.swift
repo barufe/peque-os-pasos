@@ -10,7 +10,7 @@ class ProductionEnvironment:EnvironmentParameters {
     var baseDomain: String
     
     init() {
-        self.baseURL = "http://www.SmallSteps.com"
+        self.baseURL = "https://a313-190-190-235-117.ngrok-free.app/"
         self.baseDomain = "www.SmallSteps.com"
     }
 }

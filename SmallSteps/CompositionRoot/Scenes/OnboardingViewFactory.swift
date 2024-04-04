@@ -1,5 +1,5 @@
 //
-//  StartViewFactory.swift
+//  OnboardingViewFactory.swift
 //  SmallSteps
 //
 //  Created by T09870 on 25/02/24.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct StartViewFactory: ViewSwiftUIFactory {
+struct OnboardingViewFactory: ViewSwiftUIFactory {
     
     typealias ViewType = OnboardingView
-    typealias CoordinatorType = StartCoordinator
+    typealias CoordinatorType = OnboardingCoordinator
     
     static func createView(coordinator: CoordinatorType) -> OnboardingView {
-        let viewModel = StartViewModelFactory.create()
+        let viewModel = OnboardingViewModelFactory.create()
         let view = OnboardingView(viewmodel: viewModel, coordinator: coordinator)
         
         return view
@@ -31,7 +31,7 @@ struct StartViewFactory: ViewSwiftUIFactory {
     }
     
     static func createPreviewCoordinator() -> CoordinatorType {
-        return StartCoordinatorImp(navigationCoordinator: .init(), parentCoordinator: nil)
+        return OnboardingCoordinatorImp(navigationCoordinator: .init(), parentCoordinator: nil)
     }
     
    
