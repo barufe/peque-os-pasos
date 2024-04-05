@@ -1,22 +1,23 @@
 //
-//  StartCoordinator.swift
+//  RegisterCoordinator.swift
 //  SmallSteps
 //
-//  Created by T09870 on 25/02/24.
+//  Created by barufe on 3/04/24.
 //
 
 import UIKit
 
-protocol StartCoordinator: Coordinator {
-    
+protocol RegisterCoordinator: Coordinator {
+    func goToLogin()
 }
 
-class StartCoordinatorImp: StartCoordinator {
+class RegisterCoordinatorImp: RegisterCoordinator {
+    
     var viewController: UIViewController?
     
     var parentCoordinator: Coordinator?
     
-    var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator]  = []
     
     var navigationController: UINavigationController
     
@@ -26,7 +27,7 @@ class StartCoordinatorImp: StartCoordinator {
     }
     
     func start() {
-        let vc = StartViewFactory.createHostViewController(coordinator: self)
+        let vc = RegisterViewFactory.createHostViewController(coordinator: self)
         viewController = vc
         navigationController.setViewControllers([vc], animated: false)
     }
@@ -34,6 +35,8 @@ class StartCoordinatorImp: StartCoordinator {
     func finish() {
         viewController?.removeFromParent()
     }
-    
-    
+    func goToLogin(){
+        let coordinator = LoginCoordinatorImp(navigationCoordinator: self.navigationController, parentCoordinator: self.parentCoordinator)
+        coordinator.start()
+    }
 }

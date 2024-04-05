@@ -30,7 +30,7 @@ class AppCoordinatorImp:NSObject, AppCoordinator, PresentableCommonView {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         navigationController.delegate = self
-        let startCoordinator = StartCoordinatorImp(navigationCoordinator: self.navigationController, parentCoordinator: self)
+        let startCoordinator = OnboardingCoordinatorImp(navigationCoordinator: self.navigationController, parentCoordinator: self)
         childCoordinators.append(startCoordinator)
         startCoordinator.start()
     }
